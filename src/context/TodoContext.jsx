@@ -14,21 +14,21 @@ export function TodoProvider({ children }) {
 
   function addTodo(text) {
     const newTodo = {
-      id: Data.now(),
+      id: Date.now(),
       text: text,
       completed: false
-    }
-    setTodos([...todos, newTodo])
+    };
+    setTodos([...todos, newTodo]);
   }
 
   function toggleTodo(id) {
     setTodos(todos.map(todo => {
-      todo.id === id ? {...todo, completed: !todo.completed} : todo
+      return todo.id === id ? {...todo, completed: !todo.completed} : todo
     }));
   }
 
   function deleteTodo(id) {
-    setTodos(todo.filter(todo => todo.id !== id));
+    setTodos(todos.filter(todo => todo.id !== id));
   }
 
   const value = {

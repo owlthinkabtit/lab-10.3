@@ -19,7 +19,7 @@ export function TodoInput() {
       <input  
         type="text"
         placeholder='What needs to be done?'
-        value={value}
+        value={text}
         onChange={(e) => setText(e.target.value)}
       />
       <button type="submit">Add Task</button>  
