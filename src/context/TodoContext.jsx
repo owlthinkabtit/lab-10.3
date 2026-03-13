@@ -31,11 +31,23 @@ export function TodoProvider({ children }) {
     setTodos(todos.filter(todo => todo.id !== id));
   }
 
+  function editTodo(id, newText) {
+    setTodos(todos.map(todo => {
+      return todo.id === id ? {...todo, text: newText } : todo;
+    }));
+  }
+
+  function clearCompleted() {
+    setTodos(todo.filter(todo => todo.completed === false));
+  }
+
   const value = {
     todos,
     addTodo,
     toggleTodo,
-    deleteTodo
+    deleteTodo,
+    editTodo,
+    clearCompleted
   };
 
   return (
